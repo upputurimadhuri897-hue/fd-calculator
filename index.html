@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FD Calculator</title>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background-color:red;
+        }
+
+        .box{
+            width: 350px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color:blue;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2{
+            text-align: center;
+        }
+
+        input{
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        button{
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        #result{
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>FD Calculator</h2>
+
+    <label>Principal Amount (₹)</label>
+    <input type="text" id="principal">
+
+    <label>Interest Rate (%)</label>
+    <input type="text" id="rate">
+
+    <label>Time (Years)</label>
+    <input type="text" id="time">
+
+    <button onclick="calculateFD()">
+        Calculate
+    </button>
+
+    <p id="result"></p>
+
+</div>
+
+<script>
+
+function calculateFD()
+{
+    let p = parseFloat(document.getElementById("principal").value);
+    let r = parseFloat(document.getElementById("rate").value);
+    let t = parseFloat(document.getElementById("time").value);
+
+    let amount = p * Math.pow((1 + r/100), t);
+
+    document.getElementById("result").innerHTML =
+        "Maturity Amount = ₹" + amount.toFixed(2);
+}
+
+</script>
+
+</body>
+</html>
